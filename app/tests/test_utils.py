@@ -21,4 +21,19 @@ def test_discount_price_55_130():
     with pytest.raises(ValueError):
         utils.discount_price(price, discount)
 
+def test_discount_price_32e52_55():
+    # Arrange
+    price = '32.55€'
+    discount = 55
     
+    # Act -> Assert
+    assert utils.discount_price(price, discount) == '14.65€'
+    
+
+def test_discount_prices_13e66_52e16_30():
+    # Arrange
+    price = ['13.66€', '52.16€']
+    discount = 30
+    
+    # Act -> Assert
+    assert utils.discount_prices(price, discount) == ['9.56€', '36.51€']
